@@ -386,6 +386,10 @@ app.delete('/api/users/:id', async (req, res) => {
     return handleStorageError(res, error);
   }
 });
+// Dans votre index.js Node.js
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK' })
+})
 
 const server = app.listen(port, () => {
   console.log(`Server running on port ${port}`);
