@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
+import { environment } from '../../environments/environment.prod';
 export interface User {
   id?: number;
   name: string;
@@ -9,11 +9,12 @@ export interface User {
   created_at?: string;
 }
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://projet-cloud-alb-345952240.us-east-1.elb.amazonaws.com/api/users';
+  private apiUrl = environment.apiUrl + '/users';
 
   constructor(private http: HttpClient) { }
 
